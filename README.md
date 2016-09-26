@@ -15,18 +15,15 @@ Built with:
   * a. If Homebrew isn't installed open Terminal and run the following
       commands:
 
-          #
-              ```
+      ```
                   ruby -e "$(curl -fsSL
                   https://raw.github.com/Homebrew/homebrew/go/install)"
                       ```
 
-                          2. Install Python2 Python3 and Pyenv-Virtualenv
-                                * `brew install python python3
-                                  pyenv-virtualenv`
+2. Install Python2 Python3 and Pyenv-Virtualenv
+  * ```brew install python python3 pyenv-virtualenv```
 
-                                          * `pip install virtualenv`
+  * `pip install virtualenv`
 
-                                                  3. Clone the Repository
-                                                          ```git clone
-                                                          https://github.com/StevenTurturo/Snaketron.git```
+3. Clone the Repository
+  ```git clone https://github.com/StevenTurturo/Snaketron.git```
