@@ -1,11 +1,9 @@
 import os
 
-from flask import Flask
+from flask import (Flask, g, render_template, flash, redirect, url_for)
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import (LoginManager, login_user, logout_user, login_required,
                          current_user)
-
-
 
 
 app = Flask(__name__)
@@ -13,7 +11,7 @@ app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-import models
+from models import *
 import forms
 
 
@@ -59,3 +57,8 @@ def index():
 @app.route('/home')
 def home():
     return render_template('home.html')
+
+
+if __name__ == '__main__':
+    app.run()
+
