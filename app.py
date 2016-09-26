@@ -5,14 +5,17 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import (LoginManager, login_user, logout_user, login_required,
                          current_user)
 
-import models
-import forms
+
 
 
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+
+import models
+import forms
+
 
 login_manager = LoginManager()
 login_manager.init_app(app)

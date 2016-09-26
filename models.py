@@ -18,6 +18,11 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String())
     password = db.Column(db.String())
     authenticated = db.Column(db.Boolean, default=False)
+    
+    def __init__(self, username, email, password):
+        self.username = username
+        self.email = email
+        self.password = generate_password_hash(password)
 
     def is_active(self):
         return True

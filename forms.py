@@ -1,6 +1,6 @@
 from flask_wtf import Form
 from wtforms import StringField, PasswordField, TextareaField
-from wtforms validators import (DataRequired, Regexp, Length, EqualTo,
+from wtforms.validators import (DataRequired, Regexp, Length, EqualTo,
                                 ValidationError, Email)
 
 from models import User
@@ -58,4 +58,4 @@ class IdeaForm(Form):
     content = TextAreaField(
         'Give more details on your idea',
         validators = [DataRequired()]
-    ])
+
