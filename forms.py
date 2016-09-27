@@ -5,6 +5,7 @@ from wtforms.validators import (DataRequired, Regexp, Length, EqualTo,
                                 ValidationError, Email)
 
 from models import *
+from app import db
 
 
 def name_exists(form, field):
