@@ -1,4 +1,5 @@
 from flask_wtf import Form
+from wtforms_sqlalchemy.orm import model_form
 from wtforms import StringField, PasswordField, TextAreaField
 from wtforms.validators import (DataRequired, Regexp, Length, EqualTo,
                                 ValidationError, Email)
@@ -11,7 +12,7 @@ def name_exists(form, field):
         raise ValidationError('User with that name already exists.')
 
 def email_exists(form, field):
-    if User.select().where(User.email == field.data).exists():
+    if db.sessionUser.select().where(User.email == field.data).exists():
         raise ValidationError('User with that email exists already.')
 
 class RegistrationForm(Form):
@@ -24,14 +25,12 @@ class RegistrationForm(Form):
                 message=("Username should be one word, letters, numbers, and"
                          " underscores only.")
             ),
-            name_exists
         ])
     email = StringField(
         'Email',
         validators = [
             DataRequired(),
             Email(),
-            email_exists
         ])
     password = PasswordField(
         'Password',
