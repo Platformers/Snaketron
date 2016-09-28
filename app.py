@@ -25,8 +25,12 @@ def load_user(userid):
 
     :param unicode userid: userid (email) user to retrieve
     """
-    return User.query.get(userid)
+    return User.query.filter_by(user_id=userid)
 
+
+@app.before_request
+def before_request():
+    pass
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():

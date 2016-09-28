@@ -10,7 +10,7 @@ from sqlalchemy.orm import validates
 from app import db
 
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -20,6 +20,8 @@ class User(db.Model):
     email = db.Column(db.String(255), unique=True)
     password = db.Column(db.String(255))
     authenticated = db.Column(db.Boolean, default=False)
+    company_employee = db.Column(db.Boolean, default=False)
+    company_manager = db.Column(db.Boolean, default=False)
     created_at = db.Column(db.DateTime, default=datetime.datetime.now)
     updated_at = db.Column(db.DateTime, default=datetime.datetime.now)
 

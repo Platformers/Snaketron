@@ -17,7 +17,23 @@
             crossorigin="anonymous">
     </head>
     <body>
-        {% block navigation %}{% endblock %}
+        {% block navigation %}
+            <nav class="navbar navbar-static bg-inverse">
+                <div class="container">
+                    {% if current_user.is_authenticated %}
+                        <a class="navbar-brand pull-md-left" href="/home">Snaketron Labs</a>
+                        Welcome <a class="nav-link">{{current_user.username}} </a>
+                    {% else %}
+                        <a class="navbar-brand pull-md-left" href="/">Snaketron Labs</a>
+                    {% endif %}
+                    <ul class="nav navbar-nav pull-md-right">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link 1</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        {% endblock %}
         {% block content %}{% endblock %}
         {% block scripts %}
             <script
