@@ -32,8 +32,14 @@ def load_user(userid):
 def register():
     form = forms.RegistrationForm()
     if form.validate_on_submit():
-        user = User(form.username.data,form.email.data,
-                    form.password.data)
+        data = {
+            'username': form.username.data,
+            'password': form.password.data,
+            'email': form.email.data,
+            'first_name': form.first_name.data,
+            'last_name': form.last_name.data
+        }
+        user = User(**data)
         db.session.add(user)
         db.session.commit()
         return redirect(url_for('home'))

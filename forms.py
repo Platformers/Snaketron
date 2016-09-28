@@ -9,14 +9,22 @@ from app import db
 
 
 def name_exists(form, field):
-    if User.select().where(User.username == field.data).exists():
-        raise ValidationError('User with that name already exists.')
+    if User.query.filter_by(username=field.data).first():
+        raise ValidationError('A User with that username already exists.')
 
 def email_exists(form, field):
-    if db.sessionUser.select().where(User.email == field.data).exists():
+    if User.query.filter_by(email=field.data).first():
         raise ValidationError('User with that email exists already.')
 
 class RegistrationForm(Form):
+    first_name = StringField(
+        'First Name',
+        validators = [DataRequired(), Length(max=50),]
+    )
+    last_name = StringField(
+        'Last Name',
+        validators = [DataRequired(), Length(max=100),]
+    )
     username = StringField(
         'Username',
         validators = [
@@ -26,12 +34,15 @@ class RegistrationForm(Form):
                 message=("Username should be one word, letters, numbers, and"
                          " underscores only.")
             ),
+            name_exists,
         ])
     email = StringField(
         'Email',
         validators = [
             DataRequired(),
             Email(),
+            Length(max=255),
+            email_exists
         ])
     password = PasswordField(
         'Password',
