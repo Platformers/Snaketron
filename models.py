@@ -70,7 +70,7 @@ def initialize():
 
 if 'HEROKU' in os.environ:
     from urllib.parse import urlparse
-    import pyscopg2
+    import psycopg2
     urlparse.uses_netloc.append('postgres')
     url = urlparse.urlparse(os.environ['DATABASE_URL'])
     db = PostgresqlDatabase(database=url.path[1:],
