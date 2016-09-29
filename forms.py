@@ -5,15 +5,14 @@ from wtforms.validators import (DataRequired, Regexp, Length, EqualTo,
                                 ValidationError, Email)
 
 from models import *
-from app import db
 
 
 def name_exists(form, field):
-    if User.query.filter_by(username=field.data).first():
+    if User.select().where(User.username == field.data).exists():
         raise ValidationError('A User with that username already exists.')
 
 def email_exists(form, field):
-    if User.query.filter_by(email=field.data).first():
+    if User.slect().where(User.email ==field.data).exists():
         raise ValidationError('User with that email exists already.')
 
 class RegistrationForm(Form):

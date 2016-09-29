@@ -7,13 +7,13 @@ from flask_login import (LoginManager, login_user, logout_user, login_required,
                          current_user)
 
 
-app = Flask(__name__)
-app.config.from_object(os.environ['APP_SETTINGS'])
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# db = SQLAlchemy(app)
-
-import models
+import modelsV
 import forms
+
+
+app = Flask(__name__)
+app.secret_key = '3a5s1df6a3sd85a3se1f5aw23e1f3s813as8e565a951ef3a861wea1'
+app.config.from_object(os.environ['APP_SETTINGS'])
 
 
 login_manager = LoginManager()
@@ -22,16 +22,23 @@ login_manager.login_view = 'login'
 
 @login_manager.user_loader
 def load_user(userid):
-    """Given a userid, return the associated User object.
-
-    :param unicode userid: userid (email) user to retrieve
-    """
-    return User.query.filter_by(username=userid)
+    try:
+        return models.User.get(models.User.id==userid)
+    except models.DoesNotExist:
+        return None
 
 
 @app.before_request
 def before_request():
+    g.db = models.DATABASE
+    g.db.connect()
     g.user = current_user
+
+@app.after_request
+def after_request(response):
+    """ Close the database connection"""
+    g.db.close()
+    return response
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -39,17 +46,13 @@ def register():
     form = forms.RegistrationForm()
     if form.validate_on_submit():
         flash('You have Successfully Registered!', 'success')
-        data = {
-            'username': form.username.data,
-            'password': form.password.data,
-            'email': form.email.data,
-            'first_name': form.first_name.data,
-            'last_name': form.last_name.data
-        }
-        user = User(**data)
-        db.session.add(user)
-        db.session.commit()
-        user.authenticated = True
+        models.User.create_user(
+            username=form.username.data,
+            password=form.password.data,
+            email=form.email.data,
+            first_name=form.first_name.data,
+            last_name=form.last_name.data
+        )
         return redirect(url_for('home'))
     return render_template('register.html', form=form)
 
@@ -92,5 +95,6 @@ def home():
 
 
 if __name__ == '__main__':
+
     app.run()
 
