@@ -11,14 +11,18 @@
             {% endblock%}</title>
 
             <!-- Bootstrap CSS -->
+            {% block stylesheet %}
             <link rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"
             integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj"
             crossorigin="anonymous">
+            <link rel="stylesheet" href="{{ url_for('static',
+            filename='css/main.css') }}">
+            {% endblock %}
     </head>
     <body>
         {% block navigation %}
-            <nav class="navbar navbar-static bg-inverse">
+            <nav class="navbar navbar-static">
                 <div class="container">
                     {% if current_user.is_authenticated %}
                         <a class="navbar-brand pull-md-left" href="/home">Snaketron Labs</a>

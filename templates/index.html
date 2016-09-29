@@ -1,5 +1,27 @@
 {% extends "layout.html" %}
 
+{% block stylesheet %} 
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename="css/vid.css")}}">
+{% endblock %}
+{% block navigation %}{% endblock %}
 {% block content %}
-    Welcome to Snaketron Labs!
+<!--<video playsinline autoplay muted loop poster="{{ url_for('static',
+filename='img/labs.jpg') }}" id="bgvid">
+    <source src="{{ url_for('static', filename='vid/labs.webm')}}" type="video/webm">
+    <source src="{{ url_for('static', filename='vid/labs.mp4')}}" type="video/mp4">
+    </video>
+-->
+<div id="bgimg">
+</div>
+<div class="container landing-container">
+    <div class="offset-md-2 col-md-4">
+    <a class="btn btn-block btn-warning"
+        href="{{url_for('register')}}">Register</a>
+    </div>
+    <div class="col-md-4">
+    <a class="btn btn-block btn-warning"
+        href="{{url_for('login')}}">Login</a>
+    </div>
+</div>
 {% endblock %}
