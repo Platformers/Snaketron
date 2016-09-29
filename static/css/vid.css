@@ -67,3 +67,10 @@ nav .container{
 .container.landing-container{
     padding:25% 0 0 0;
 }
+
+@media(max-width: 768px){
+    .btn{
+        margin-top: 1rem;
+    }
+}
+
