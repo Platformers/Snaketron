@@ -60,21 +60,19 @@ def register():
 def login():
     form = forms.LoginForm()
     if form.validate_on_submit():
-        try:
-            user = User.query.filter_by(username=form.username.data).first()
-        except TypeError:
-            pass
+        try: 
+            user = models.User.get(models.User.username == form.username.data)
+        except models.DoesNotExist:
+            flash("Your username or password do not match our records",
+                  "error")
         else:
-            if check_password_hash(user.password.decode('utf8'),
-                                   form.password.data.encode('utf8')):
-                user.authenticated=True
+            if check_password_hash(user.password, form.password.data):
                 login_user(user)
-                flash("You have been logged in!", "success")
+                flash('You have successfully logged in!')
                 return redirect(url_for('home'))
             else:
-                flash("Your email or password are incorrect!", 'error')
-    return render_template('login.html',form=form)
-
+                flash("Your username or password do not match our records")
+    return render_template('login.html', form=form)
 
 @app.route('/logout', methods=['GET', 'POST'])
 @login_required
