@@ -21,16 +21,16 @@ login_manager.init_app(app)
 login_manager.login_view = 'login'
 
 @login_manager.user_loader
-def load_user(userid):
+def load_user(user_id):
     try:
-        return models.User.get(models.User.id==userid)
+        return models.User.get(models.User.id==user_id)
     except models.DoesNotExist:
         return None
 
 
 @app.before_request
 def before_request():
-    g.db = models.DATABASE
+    g.db = models.psql_db
     g.db.connect()
     g.user = current_user
 
