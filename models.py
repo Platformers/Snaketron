@@ -69,7 +69,8 @@ def initialize():
     psql_db.close()
 
 if 'HEROKU' in os.environ:
-    import urlparse, pyscopg2
+    from urllib.parse import urlparse
+    import pyscopg2
     urlparse.uses_netloc.append('postgres')
     url = urlparse.urlparse(os.environ['DATABASE_URL'])
     db = PostgresqlDatabase(database=url.path[1:],
