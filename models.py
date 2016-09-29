@@ -1,13 +1,13 @@
 import datetime
-import bcrypt
+import os
 
 from flask_bcrypt import generate_password_hash
 from flask_login import UserMixin
 from peewee import *
 
 
-psql_db = PostgresqlDatabase(database='snaketron',
-                             user='snaketron',password='snaketron',host='localhost')
+psql_db = PostgresqlDatabase(database=os.environ['DATABASE'],
+                             user=os.environ['DATABASE_USERNAME'],password=os.environ['DATABASE_PASSWORD'],host='localhost')
 
 class BaseModel(Model):
     created_at = DateTimeField(default=datetime.datetime.now)
