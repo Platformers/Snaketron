@@ -57,8 +57,8 @@ class RegistrationForm(Form):
     )
 
 class LoginForm(Form):
-    username = StringField('Username', validators=[DataRequired(), Email()])
-    password= PasswordField('Password', validators=[DataRequired])
+    username = StringField('Username', validators=[DataRequired()])
+    password= PasswordField('Password', validators=[DataRequired()])
 
 class IdeaForm(Form):
     title = StringField(

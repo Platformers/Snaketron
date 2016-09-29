@@ -3,71 +3,71 @@ import bcrypt
 
 from flask_bcrypt import generate_password_hash
 from flask_login import UserMixin
-from sqlalchemy import Column, Integer, Text, TypeDecorator
-from sqlalchemy.dialects.postgresql import JSON
-from sqlalchemy.orm import validates
-
-from app import db
+from peewee import *
 
 
-class User(UserMixin, db.Model):
-    __tablename__ = 'users'
+# from sqlalchemy import Column, Integer, Text, TypeDecorator
+# from sqlalchemy.dialects.postgresql import JSON
+# from sqlalchemy.orm import validates
 
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(20), unique=True)
-    first_name = db.Column(db.String(50))
-    last_name = db.Column(db.String(100))
-    email = db.Column(db.String(255), unique=True)
-    password = db.Column(db.String(255))
-    authenticated = db.Column(db.Boolean, default=False)
-    company_employee = db.Column(db.Boolean, default=False)
-    company_manager = db.Column(db.Boolean, default=False)
-    created_at = db.Column(db.DateTime, default=datetime.datetime.now)
-    updated_at = db.Column(db.DateTime, default=datetime.datetime.now)
+# from app import db
 
-    def __init__(self, **kwargs):
-        self.username = kwargs['username']
-        self.email = kwargs['email']
-        self.password = generate_password_hash(kwargs['password'])
-        self.first_name = kwargs['first_name']
-        self.last_name = kwargs['last_name']
+psql_db = PostgresqlDatabase('snaketron',
+                             user='snaketron',password='snaketron')
 
-    def is_active(self):
-        return True
+class User(UserMixin, Model):
+    username=CharField(unique=True,max_length=25)
+    first_name = CharField(max_length=100)
+    last_name = CharField(max_length=100)
+    email=CharField(unique=True, max_length=255)
+    password=CharField(unique=True)
+    company_employee=BooleanField(default=False)
+    company_manager = BooleanField(default=False)
+    created_at = DateTimeField(default=datetime.datetime.now)
+    updated_at = DateTimeField(default=datetime.datetime.now)
 
-    def get_id(self):
-        """Return the email address to satisfy Flask-Login's Requirements."""
-        return self.email
+    class Meta:
+        database = psql_db
 
-    def is_authenticated(self):
-        """Return True if the user is authenticated."""
-        return self.authenticated
+        @classmethod
+        def create_user(cls,
+                        username,first_name,last_name,email,password,company_employee=False,
+                        company_manager=False)
+            try:
+                cls.create(
+                    username=username,
+                    first_name=first_name,
+                    last_name=last_name,
+                    email=email,
+                    password=generate_password_hash(password),
+                    company_employee=company_employee,
+                    company_manager=company_manager
+                )
+            except IntegrityError:
+                raise ValueError("User already exists!")
 
-    def is_anonymous(self):
-        """False, as anonymous users aren't supported at the moment."""
-        return False
 
 
-class Idea(db.Model):
-    __tablename__ = 'idea'
+class Idea(Model):
+    title = CharField(max_length=50)
+    description = TextField()
+    created_at = DateTimeField(default=datetime.datetime.now)
+    updated_at = DateTimeField(default=datetime.datetime.now)
+    author_id = ForeignKeyField(rel_model=User,related_name='ideas')
 
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(50))
-    description = db.Column(db.String(500))
-    created_at = db.Column(db.DateTime, default=datetime.datetime.now)
-    updated_at = db.Column(db.DateTime, default=datetime.datetime.now)
-    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    class Meta:
+        database = psql_db
 
-    def __init__(self, title, description, author):
-        self.title = title
-        self.description = description
-        self.author_id = author
+class IdeaComment(Model):
+    idea_id = ForeignKeyField(rel=Idea,related_name='idea_comments')
+    author_id = ForeignKeyField(rel=User, related_name='idea_comment_author')
+    content = TextField()
+    created_at = DateTimeField(default=datetime.datetime.now)
+    updated_at = DateTimeField(default=datetime.datetime.now)
 
-class IdeaComment(db.Model):
-    __tablename__ = 'idea_comment'
+def initialize():
+    psql_db.connect()
+    psql_db.create_tables([User,Idea,IdeaComment],safe=True)
+    psql_db.close()
 
-    id = db.Column(db.Integer, primary_key=True)
-    idea_id = db.Column(db.Integer, db.ForeignKey('idea.id'))
-    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    content = db.Column(db.String(500))
 

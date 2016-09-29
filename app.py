@@ -9,10 +9,10 @@ from flask_login import (LoginManager, login_user, logout_user, login_required,
 
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# db = SQLAlchemy(app)
 
-from models import *
+import models
 import forms
 
 
@@ -26,12 +26,13 @@ def load_user(userid):
 
     :param unicode userid: userid (email) user to retrieve
     """
-    return User.query.filter_by(user_id=userid)
+    return User.query.filter_by(username=userid)
 
 
 @app.before_request
 def before_request():
-    pass
+    g.user = current_user
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -48,6 +49,7 @@ def register():
         user = User(**data)
         db.session.add(user)
         db.session.commit()
+        user.authenticated = True
         return redirect(url_for('home'))
     return render_template('register.html', form=form)
 
@@ -57,10 +59,12 @@ def login():
     if form.validate_on_submit():
         try:
             user = User.query.filter_by(username=form.username.data).first()
-        except User.query.filter(username=form.username.data).first is None:
-            flash("Your username or password are incorrect!",'warning')
+        except TypeError:
+            pass
         else:
-            if check_password_hash(user.password, form.password.data):
+            if check_password_hash(user.password.decode('utf8'),
+                                   form.password.data.encode('utf8')):
+                user.authenticated=True
                 login_user(user)
                 flash("You have been logged in!", "success")
                 return redirect(url_for('home'))
@@ -70,6 +74,7 @@ def login():
 
 
 @app.route('/logout', methods=['GET', 'POST'])
+@login_required
 def logout():
     logout_user()
     flash("You've been logged out! Come back soon!")
@@ -81,6 +86,7 @@ def index():
     return render_template('index.html')
 
 @app.route('/home')
+@login_required
 def home():
     return render_template('home.html')
 
