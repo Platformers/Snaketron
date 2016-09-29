@@ -7,7 +7,7 @@ from flask_login import (LoginManager, login_user, logout_user, login_required,
                          current_user)
 
 
-import modelsV
+import models
 import forms
 
 
@@ -93,6 +93,17 @@ def home():
 
 
 if __name__ == '__main__':
-
+    models.initialize()
+    try:
+        models.User.create_user(
+            username='athena',
+            first_name='Athena',
+            last_name='Turturo',
+            email='athena@gmail.com',
+            password='password',
+            company_employee=True,
+            company_manager=True
+        )
+    except ValueError:
+        pass
     app.run()
-
