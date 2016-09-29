@@ -1,6 +1,7 @@
 import os
 
 from flask import (Flask, g, render_template, flash, redirect, url_for)
+from flask_bcrypt import check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import (LoginManager, login_user, logout_user, login_required,
                          current_user)
@@ -36,6 +37,7 @@ def before_request():
 def register():
     form = forms.RegistrationForm()
     if form.validate_on_submit():
+        flash('You have Successfully Registered!', 'success')
         data = {
             'username': form.username.data,
             'password': form.password.data,
@@ -53,15 +55,19 @@ def register():
 def login():
     form = forms.LoginForm()
     if form.validate_on_submit():
-        login_user(user)
+        try:
+            user = User.query.filter_by(username=form.username.data).first()
+        except User.query.filter(username=form.username.data).first is None:
+            flash("Your username or password are incorrect!",'warning')
+        else:
+            if check_password_hash(user.password, form.password.data):
+                login_user(user)
+                flash("You have been logged in!", "success")
+                return redirect(url_for('home'))
+            else:
+                flash("Your email or password are incorrect!", 'error')
+    return render_template('login.html',form=form)
 
-        flask.flash('Logged in successfully')
-
-        return redirect( url_for('home'))
-    else:
-        flash("Your email or password were incorrect please try again!",
-              "error")
-    return render_template('login.html', form=form)
 
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
