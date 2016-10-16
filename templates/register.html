@@ -5,16 +5,18 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <form method="POST" action="" class="form">
-            {{ form.hidden_tag() }}
-            {% for field in form %}
-            <div class="form-group">
-                {{ field.label }} 
-                {{ render_field(field) }}
-            </div>
-            {% endfor %}
-            <button type="submit" id="submit">Register!</button>
-        </form>
+        <div class="card col-md-6">
+            <form method="POST" action="" class="form">
+                {{ form.hidden_tag() }}
+                {% for field in form %}
+                <div class="form-group">
+                    {{ field.label }} 
+                    {{ render_field(field) }}
+                </div>
+                {% endfor %}
+                <button type="submit" id="submit">Register!</button>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}

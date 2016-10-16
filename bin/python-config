@@ -1,4 +1,4 @@
-#!/home/steven/programming/python3_projects/snaketron/bin/python
+#!/home/steven/programming_projects/python3/Snaketron/bin/python
 
 import sys
 import getopt
