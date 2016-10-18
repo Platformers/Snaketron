@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--Register Page-->
+
+<html lang="en">
+	<head>
+	
+		<title>Register</title>
+		<meta charset="utf-8">
+		
+	</head>
+
+	<body>
+		<!--offset used to center form-->
+		<form>
+		<h2>Register</h2>
+		<p>
+			
+			<label for="name">Name </label>
+			<br />
+			<!--First name-->
+			<input type="text" id="name" name="fname" 
+			placeholder="First Name"
+			autofocus
+			required
+			pattern="[a-zA-Z-' ]{2,30}"/>
+			<!--Last name-->
+			<input type="text" id="name" name="lname" 
+			placeholder="Last Name" 
+			autofocus
+			required
+			pattern="[a-zA-Z-' ]{2,30}"/>	
+			
+			
+			<br />
+			
+			
+			<label for="email">E-mail </label>
+			<br />
+			<input type="email"  id="email" name="email" 
+			placeholder="Email"
+			required
+			pattern="[a-z0-9-_.$!]+@[a-z0-9-_.]+\.[a-z]{2,16}"
+			maxlength="50"/>
+			
+			<br />
+			
+			<label for="pw">Password </label>
+			<br />
+			<input type="password" id="pw" name="pw" 
+			placeholder="Password"
+			required/>
+			<!--Retype password-->
+			<input type="password" id="retype" name="retype" 
+			placeholder="Retype Password"
+			required/>
+			
+			
+			<br />
+			<br />
+				<button type="submit">Register</button>
+			
+				<button type="reset" onclick="history.go(0)">Clear</button>
+	
+			</p>
+		</form>
+	
+	
+	<body>
+
+
+</html>
