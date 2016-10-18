@@ -1,0 +1,176 @@
+{% extends 'layout.html' %}
+
+        {% block stylesheets %}
+		<!-- Custom styles for this template -->
+        {{ super() }}
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/project_page.css') }}" rel="stylesheet">
+        {% endblock %}
+        {% block content %}
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner" role="listbox">        
+			<div class="carousel-item active">
+                <img class="second-slide w-100" src="{{ url_for('static',
+                filename='img/activity-pic-3.jpg') }}" alt="Project image">
+				<div class="container">
+					<div class="carousel-caption">
+						<h1>Selected Project name</h1>
+						<p>One line of description</p>
+						<p><a class="btn btn-primary" href="#" role="button">Enroll</a></p>
+					</div>
+				</div>
+			</div>        
+		</div>     
+    </div><!-- /.carousel -->
+	
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+    <div class="container marketing">
+      <div class="row">
+        <div class="offset-sm-2 col-lg-6">
+          <h2>Description:</h2>
+          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
+		  Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+          <p><a class="btn btn-primary" href="#" role="button">Enroll</a></p>
+        </div><!-- /.col-lg-8 -->
+		
+		
+		<!-- person, comment, #days on the right side of the description-->
+        <div class="col-xs-4">
+            <img class="img" src="{{ url_for('static',
+            filename='img/person.png') }}" alt="Number of Comments" width="30" height="30"><p>#</p>
+            <img class="img" src="{{ url_for('static',
+            filename='img/comment.png') }}" alt="Number of Comments" width="30" height="30"><p>#</p>
+		   <p># of days left</p>
+           <img class="img" src="{{ url_for('static',
+           filename='img/robot-badge.png') }}" alt="robot-badge" width="30" height="30">
+           <img class="img" src="{{ url_for('static',
+           filename='img/comment-badge.png') }}" alt="comment-badge" width="30" height="30">
+           <img class="img" src="{{ url_for('static', filename='img/idea-badge.png') }}" alt="idea-badge" width="30" height="30">
+		</div><!--/ ### on the right of the description-->
+		
+      </div><!-- /.row -->
+	  
+	 <!--Question-->
+		<div class="col-lg-12">
+		  <h3>What do you think?</h3> 
+			  <h5>Would you this product?</h5>
+		  <form>
+			<label class="radio-inline">
+			  <input type="radio" name="optradio">Yes&nbsp&nbsp&nbsp&nbsp&nbsp
+			</label>
+			<label class="radio-inline">
+			  <input type="radio" name="optradio">No
+			</label>
+		  </form>
+		  <button type="button" class="btn btn-success">Submit</button>
+		</div>
+	<!--/Question-->
+	  
+<!-- Comment
+    ================================================== -->
+
+<section class="content-item" id="comments">
+    <div class="container">         
+    	<div class="row">
+            <div class="offset-sm-2 col-sm-8">   
+                <form class="pull-xs-right">
+                	<h3 class="pull-xs-left">New Comment</h3>
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-sm-3 col-lg-2 hidden-xs">
+                            	<img class="img-responsive" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                            </div>
+                            <div class="form-group col-xs-12 offset-sm-2 col-sm-8">
+                                <textarea class="form-control" id="message" placeholder="Your message" required=""></textarea>
+								<button type="submit" class="btn btn-normal pull-sm-right">Submit</button>
+                            </div>
+							
+                        </div>  	
+                    </fieldset>
+                </form>
+                
+                <h3>4 Comments</h3>
+                
+                <!-- COMMENT 1 - START -->
+                <div class="media">
+                    <a class="pull-left" href="#"><img class="media-object" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
+                    <div class="media-body">
+                        <h4 class="media-heading">John Doe</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <ul class="list-unstyled list-inline media-detail pull-left">
+                            <li><i class="fa fa-calendar"></i>27/02/2014</li>
+                            <li><i class="fa fa-thumbs-up"></i>13</li>
+                        </ul>
+                        <ul class="list-unstyled list-inline media-detail pull-right">
+                            <li class=""><a href="">Like</a></li>
+                            <li class=""><a href="">Reply</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- COMMENT 1 - END -->
+                
+                <!-- COMMENT 2 - START -->
+                <div class="media">
+                    <a class="pull-left" href="#"><img class="media-object" src="http://bootdey.com/img/Content/avatar/avatar2.png" alt=""></a>
+                    <div class="media-body">
+                        <h4 class="media-heading">John Doe</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <ul class="list-unstyled list-inline media-detail pull-left">
+                            <li><i class="fa fa-calendar"></i>27/02/2014</li>
+                            <li><i class="fa fa-thumbs-up"></i>13</li>
+                        </ul>
+                        <ul class="list-unstyled list-inline media-detail pull-right">
+                            <li class=""><a href="">Like</a></li>
+                            <li class=""><a href="">Reply</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- COMMENT 2 - END -->
+                
+                <!-- COMMENT 3 - START -->
+                <div class="media">
+                    <a class="pull-left" href="#"><img class="media-object" src="http://bootdey.com/img/Content/avatar/avatar3.png" alt=""></a>
+                    <div class="media-body">
+                        <h4 class="media-heading">John Doe</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <ul class="list-unstyled list-inline media-detail pull-left">
+                            <li><i class="fa fa-calendar"></i>27/02/2014</li>
+                            <li><i class="fa fa-thumbs-up"></i>13</li>
+                        </ul>
+                        <ul class="list-unstyled list-inline media-detail pull-right">
+                            <li class=""><a href="">Like</a></li>
+                            <li class=""><a href="">Reply</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- COMMENT 3 - END -->
+                
+                <!-- COMMENT 4 - START -->
+                <div class="media">
+                    <a class="pull-left" href="#"><img class="media-object" src="http://bootdey.com/img/Content/avatar/avatar4.png" alt=""></a>
+                    <div class="media-body">
+                        <h4 class="media-heading">John Doe</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <ul class="list-unstyled list-inline media-detail pull-left">
+                            <li><i class="fa fa-calendar"></i>27/02/2014</li>
+                            <li><i class="fa fa-thumbs-up"></i>13</li>
+                        </ul>
+                        <ul class="list-unstyled list-inline media-detail pull-right">
+                            <li class=""><a href="">Like</a></li>
+                            <li class=""><a href="">Reply</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- COMMENT 4 - END -->
+            
+            </div>
+        </div>
+    </div>
+</section>
+    </div><!-- /.container -->
+
+    {% endblock %} 
+
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="25" style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif">500x500</text></svg></body></html>

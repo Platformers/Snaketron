@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block stylesheet %}	
-    {{ super()
+    {{ super() }}
     <!-- More Custom style for profile -->
     <link href="{{ url_for('static', filename='css/profile.css') }}" rel="stylesheet">
 {% endblock %}
@@ -14,7 +14,8 @@
       <div class="row">
         <div class="col-lg-4">
 			<div class="profile-pic">
-			  <img class="img-circle" src="profpic.png" alt="Generic placeholder image" width="140" height="140">
+                <img class="img-circle" src="{{ url_for('static',
+                filename='img/profpic.png') }}" alt="Generic placeholder image" width="140" height="140">
 			  <h2>Name Here</h2>
 			</div>
 		</div><!-- /.col-lg-4 -->
@@ -63,12 +64,18 @@
 			
 			<div class="row">  
 			  <div class="col-lg-8">
-			   <img class="img-circle" src="idea-badge.png" alt="Generic placeholder image" width="60" height="60">
-			   <img class="img-circle" src="robot-badge.png" alt="Generic placeholder image" width="60" height="60">
-			   <img class="img-circle" src="comment-badge.png" alt="Generic placeholder image" width="60" height="60">
-			    <img class="img-circle" src="idea-badge.png" alt="Generic placeholder image" width="60" height="60">
-			   <img class="img-circle" src="robot-badge.png" alt="Generic placeholder image" width="60" height="60">
-			   <img class="img-circle" src="comment-badge.png" alt="Generic placeholder image" width="60" height="60">
+                  <img class="img-circle" src="{{ url_for('static',
+                  filename='img/idea-badge.png') }}" alt="Generic placeholder image" width="60" height="60">
+                  <img class="img-circle" src="{{ url_for('static',
+                  filename='img/robot-badge.png') }}" alt="Generic placeholder image" width="60" height="60">
+                  <img class="img-circle" src="{{ url_for('static',
+                  filename='img/comment-badge.png') }}" alt="Generic placeholder image" width="60" height="60">
+                  <img class="img-circle" src="{{ url_for('static',
+                  filename='img/idea-badge.png') }}" alt="Generic placeholder image" width="60" height="60">
+                  <img class="img-circle" src="{{ url_for('static',
+                  filename='img/robot-badge.png') }}" alt="Generic placeholder image" width="60" height="60">
+                  <img class="img-circle" src="{{ url_for('static',
+                  filename='img/comment-badge.png') }}" alt="Generic placeholder image" width="60" height="60">
 			   </div>
 			   <div class="col-lg-8">
 			   <a class="btn btn-secondary" href="#" role="button">View all</a>
@@ -130,7 +137,8 @@
 				<div class="col-lg-4">
 				
 				
-						<img src="activity-pic-3.jpg" alt="act1" width="300" height="180">
+                    <img src="{{ url_for('static',
+                    filename='img/activity-pic-3.jpg') }}" alt="act1" width="300" height="180">
 						<h3>Top Activity 1</h3>
 						<p> Description of the activity will go here.
 					Acvities can include project enrollments and stuff.
@@ -138,7 +146,7 @@
 					<a href="#">> View</a>
 				</div>
 				<div class="col-lg-4">
-					<img src="activity-pic-3.jpg" alt="act1" width="300" height="180">
+                    <img src="{{ url_for('static', filename='img/activity-pic-3.jpg') }}" alt="act1" width="300" height="180">
 					<h3>Top Activity 2</h3>
 					<p> Description of the activity will go here.
 					Acvities can include project enrollments and stuff.
@@ -148,7 +156,8 @@
 				
 				<div class="col-lg-4">
 				
-					<img src="activity-pic-3.jpg" alt="act1" width="300" height="180">
+                    <img src="{{ url_for('static',
+                    filename='img/activity-pic-3.jpg') }}" alt="act1" width="300" height="180">
 					<h3>Top Activity 3</h3>
 					<p> Description of the activity will go here.
 					Acvities can include project enrollments and stuff.
@@ -160,12 +169,6 @@
 		</div>
 	</div>
 	  
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-xs-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2016 Platformers, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
-
     </div><!-- /.container -->
 {% endblock %}
 {% block scripts %}

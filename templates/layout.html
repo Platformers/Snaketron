@@ -32,6 +32,14 @@
                     <ul class="nav navbar-nav pull-md-right">
                             {% if current_user.is_authenticated %}
                                 <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('project')
+                                    }}">Projects</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('profile') }}">{{
+                                        current_user.first_name }}</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link" 
                                         href="{{ url_for('logout') }}">Logout
                                     </a>
