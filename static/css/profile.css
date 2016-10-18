@@ -1,0 +1,88 @@
+ .row {
+padding-top: 40px;
+margin-bottom: 40px;
+}
+
+
+.profile-pic {
+	position: absolute;
+	left: 0px;
+	width: 400px;
+	padding-right: 80px;
+} 
+
+/*.badges {
+	border: solid; 
+	margin: auto;
+	width: 60%;
+	text-align: center;
+}  */
+
+.col-lg-8{
+	text-align: center;
+}
+
+/*Padding on row div for "Name Here's stats"*/
+.offset-lg-6.col-lg-8 .row {
+	padding-top: 0px;
+}
+
+.col-lg-2 {
+	border-right: thin solid lightgrey;
+	border-left: thin solid lightgrey;
+	padding-bottom: 20px;
+}
+
+.btn.btn-secondary {
+	margin-top: 10px;
+}
+
+/* My top activities section starts here*/
+.myactivities {
+	border-top: thin solid lightgrey;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	text-align: center;
+}
+
+.activitylog {
+	margin-top: 30px;
+}
+
+h3 {
+	margin-top: 20px;
+	/* font-weight: normal; */
+	font-size: 20px;
+}
+
+.activitylog .col-lg-4 {
+	padding-top: 10px;
+	width: 350px;
+	margin: 10px;
+	background: lightgrey;
+	padding-bottom: 30px;
+}
+ 
+ /*Re-styled for mobile use*/
+ 
+ @media only screen and (max-width: 64em) {
+	.profile-pic {
+	position: inherit;
+	left: auto;
+	border: none;
+	padding: 0px;
+	margin: auto;
+	width: 50%;
+	text-align: center;
+} 
+
+.activitylog img{
+	
+	width: 200px;
+
+}
+
+
+ }
+
+
