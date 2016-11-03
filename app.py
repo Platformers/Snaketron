@@ -7,14 +7,14 @@ from flask_login import (LoginManager, login_user, logout_user, login_required,
                          current_user)
 
 
-import models
+import old_models
 import forms
-
 
 app = Flask(__name__)
 app.secret_key = '3a5s1df6a3sd85a3se1f5aw23e1f3s813as8e565a951ef3a861wea1'
 app.config.from_object(os.environ['APP_SETTINGS'])
 
+db = SQLAlchemy(app)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -23,14 +23,14 @@ login_manager.login_view = 'login'
 @login_manager.user_loader
 def load_user(user_id):
     try:
-        return models.User.get(models.User.id==user_id)
-    except models.DoesNotExist:
+        return old_models.User.get(old_models.User.id == user_id)
+    except old_models.DoesNotExist:
         return None
 
 
 @app.before_request
 def before_request():
-    g.db = models.psql_db
+    g.db = old_models.psql_db
     g.db.connect()
     g.user = current_user
 
@@ -46,7 +46,7 @@ def register():
     form = forms.RegistrationForm()
     if form.validate_on_submit():
         flash('You have Successfully Registered!', 'success')
-        models.User.create_user(
+        old_models.User.create_user(
             username=form.username.data,
             password=form.password.data,
             email=form.email.data,
@@ -61,8 +61,8 @@ def login():
     form = forms.LoginForm()
     if form.validate_on_submit():
         try: 
-            user = models.User.get(models.User.username == form.username.data)
-        except models.DoesNotExist:
+            user = old_models.User.get(old_models.User.username == form.username.data)
+        except old_models.DoesNotExist:
             flash("Your username or password do not match our records",
                   "error")
         else:
@@ -93,9 +93,9 @@ def home():
 
 
 if __name__ == '__main__':
-    models.initialize()
+    old_models.initialize()
     try:
-        models.User.create_user(
+        old_models.User.create_user(
             username='athena',
             first_name='Athena',
             last_name='Turturo',
@@ -104,6 +104,6 @@ if __name__ == '__main__':
             company_employee=True,
             company_manager=True
         )
-    except ValueError:
-        pass
+    except ValueError as e:
+        print(e)
     app.run()

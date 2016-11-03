@@ -4,7 +4,7 @@ from wtforms import StringField, PasswordField, TextAreaField
 from wtforms.validators import (DataRequired, Regexp, Length, EqualTo,
                                 ValidationError, Email)
 
-from models import *
+from old_models import *
 
 
 def name_exists(form, field):
