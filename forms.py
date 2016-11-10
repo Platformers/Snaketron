@@ -59,13 +59,13 @@ class LoginForm(Form):
     username = StringField('Username', validators=[DataRequired()])
     password= PasswordField('Password', validators=[DataRequired()])
 
-class IdeaForm(Form):
+class ProjectForm(Form):
     title = StringField(
         'Title',
         validators = [
             DataRequired(),
             Length(min=20)
         ])
-    content = TextAreaField(
-        'Give more details on your idea',
+    description = TextAreaField(
+        'Give more details on the project',
         validators = [DataRequired()])

@@ -48,24 +48,43 @@ class User(UserMixin, BaseModel):
         db_table = 'users'
 
 
-class Idea(BaseModel):
+class Project(BaseModel):
     title = CharField(max_length=50)
     description = TextField()
     created_at = DateTimeField(default=datetime.datetime.now)
     updated_at = DateTimeField(default=datetime.datetime.now)
-    author_id = ForeignKeyField(rel_model=User,related_name='ideas')
+    author_id = ForeignKeyField(rel_model=User,related_name='enrolled_projects')
+
+    @classmethod
+    def create_project(cls,title,description,author):
+        try:
+            cls.create(
+                title=title,
+                description=description,
+                author_id=author
+            )
+        except IntegrityError:
+            raise ValueError('Project Already Exists or Something Else went wrong')
 
 
-class IdeaComment(BaseModel):
-    idea_id = ForeignKeyField(rel_model=Idea,related_name='idea_comments')
-    author_id = ForeignKeyField(rel_model=User, related_name='idea_comment_author')
+class ProjectComment(BaseModel):
+    idea_id = ForeignKeyField(rel_model=Project,related_name='project_comments')
+    author_id = ForeignKeyField(rel_model=User, related_name='project_comment_author')
     content = TextField()
     created_at = DateTimeField(default=datetime.datetime.now)
     updated_at = DateTimeField(default=datetime.datetime.now)
 
+
+
+
+class EnrolledProject(BaseModel):
+    project_id = ForeignKeyField(rel_model=Project, related_name='project_enrollment')
+    user_id = ForeignKeyField(rel_model=User, related_name='user_enrolled')
+    date_enrolled = DateTimeField(default=datetime.datetime.now)
+
 def initialize():
     psql_db.connect()
-    psql_db.create_tables([User,Idea,IdeaComment],safe=True)
+    psql_db.create_tables([User,Project,ProjectComment],safe=True)
     psql_db.close()
 
 if 'HEROKU' in os.environ:

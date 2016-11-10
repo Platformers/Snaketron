@@ -1,10 +1,11 @@
 import os
 
-from flask import (Flask, g, render_template, flash, redirect, url_for)
+from flask import (Flask, g, render_template, flash,jsonify, redirect,request, url_for)
 from flask_bcrypt import check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import (LoginManager, login_user, logout_user, login_required,
                          current_user)
+from flask_assets import Environment, Bundle
 
 
 import old_models
@@ -15,6 +16,12 @@ app.secret_key = '3a5s1df6a3sd85a3se1f5aw23e1f3s813as8e565a951ef3a861wea1'
 app.config.from_object(os.environ['APP_SETTINGS'])
 
 db = SQLAlchemy(app)
+
+assets = Environment(app)
+assets.url = app.static_url_path
+scss = Bundle('css/scss/styles.css.scss', filters='pyscss',
+              depends='css/scss/*.scss',output='snaketron_styles.css')
+assets.register('scss_all',scss)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -89,8 +96,38 @@ def index():
 @app.route('/home')
 @login_required
 def home():
-    return render_template('home.html')
+    return render_template('landing_page.html')
 
+@app.route('/project')
+@app.route('/project/<int:project_id>')
+@login_required
+def project(project_id=None):
+    return render_template('project.html')
+
+
+@app.route('/profile')
+@app.route('/profile/<username>')
+@login_required
+def profile(username=None):
+    return render_template('profile.html')
+
+@app.route('/create_project',methods=['GET','POST'])
+def create_project():
+    if request.method == 'GET':
+        form = forms.ProjectForm()
+        return render_template('register.html',form=form)
+    elif request.method == 'POST':
+        try:
+                old_models.Project.create_project(
+                    title=request.form['title'],
+                    description=-request.form['description'],
+                    author_id=current_user.id
+                )
+                return jsonify({'status':'OK'})
+        except ValueError as e:
+            return jsonify(e)
+    else:
+        return 'DID NOT COMPUTE'
 
 if __name__ == '__main__':
     old_models.initialize()

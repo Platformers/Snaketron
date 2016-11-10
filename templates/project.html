@@ -7,26 +7,30 @@
         <link href="{{ url_for('static', filename='css/project_page.css') }}" rel="stylesheet">
         {% endblock %}
         {% block content %}
-    <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-		<div class="carousel-inner" role="listbox">        
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner" role="listbox">
 			<div class="carousel-item active">
-                <img class="second-slide w-100" src="{{ url_for('static',
-                filename='img/activity-pic-3.jpg') }}" alt="Project image">
+				<img class="second-slide" src="images/projectimg.jpg" alt="Project image">
 				<div class="container">
 					<div class="carousel-caption">
 						<h1>Selected Project name</h1>
 						<p>One line of description</p>
-						<p><a class="btn btn-primary" href="#" role="button">Enroll</a></p>
+						<p><a class="btn btn-primary" href="#" role="button" >Enroll</a></p>
+
 					</div>
 				</div>
-			</div>        
-		</div>     
+			</div>
+		</div>
     </div><!-- /.carousel -->
-	
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
+
     <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="offset-sm-2 col-lg-6">
           <h2>Description:</h2>
@@ -34,28 +38,72 @@
 		  Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
           <p><a class="btn btn-primary" href="#" role="button">Enroll</a></p>
         </div><!-- /.col-lg-8 -->
-		
-		
+
 		<!-- person, comment, #days on the right side of the description-->
         <div class="col-xs-4">
-            <img class="img" src="{{ url_for('static',
-            filename='img/person.png') }}" alt="Number of Comments" width="30" height="30"><p>#</p>
-            <img class="img" src="{{ url_for('static',
-            filename='img/comment.png') }}" alt="Number of Comments" width="30" height="30"><p>#</p>
-		   <p># of days left</p>
-           <img class="img" src="{{ url_for('static',
-           filename='img/robot-badge.png') }}" alt="robot-badge" width="30" height="30">
-           <img class="img" src="{{ url_for('static',
-           filename='img/comment-badge.png') }}" alt="comment-badge" width="30" height="30">
-           <img class="img" src="{{ url_for('static', filename='img/idea-badge.png') }}" alt="idea-badge" width="30" height="30">
+          <i class="fa fa-user fa-3x"></i>
+		  <p>#</p>
+		  <i class="fa fa-comments fa-3x"></i>
+		  <p>#</p>
+		  <p># of days left</p>
+			<img class="img" src="images/robot-badge.png" alt="robot-badge" width="30" height="30">
+			<img class="img" src="images/comment-badge.png" alt="comment-badge" width="30" height="30">
+			<img class="img" src="images/idea-badge.png" alt="idea-badge" width="30" height="30">
+
+			<div id="badge">
+				<button id="badge-vote" class="btn btn-secondary btn-sm fa fa-thumbs-up" title="Acknowledgments" data-container="body"
+					data-toggle="popover" data-placement="left"
+					data-content="
+
+					<table>
+					<tr>
+					<td><img src='images/robot-badge.png' width='30' height='30'></td>
+					<td>name</td>
+					<td>#</td>
+					</tr>
+
+					<tr>
+					<td><img src='images/comment-badge.png' width='30' height='30'></td>
+					<td>name</td>
+					<td>#</td>
+					</tr>
+
+					<tr>
+					<td><img src='images/idea-badge.png' width='30' height='30'></td>
+					<td>name</td>
+					<td>#</td>
+					</tr>
+
+					<tr>
+					<td><img src='images/shoot-bronze.png' width='30' height='30'></td>
+					<td>name</td>
+					<td>#</td>
+					</tr>
+					</table>
+
+					"
+				>
+				</button>
+
+				<button id="badge-list" type="button" class="btn btn-secondary btn-sm" title="List of badges" data-container="body"
+				data-toggle="popover" data-placement="top" data-trigger="focus"
+				data-content="
+				<img src='images/robot-badge.png' width='30' height='30'>
+				<img src='images/comment-badge.png' width='30' height='30'>
+				<img src='images/idea-badge.png' width='30' height='30'>
+				<img src='images/shoot-bronze.png' width='30' height='30'>
+				"
+				>
+					View
+				</button>
+			</div>
 		</div><!--/ ### on the right of the description-->
-		
+
       </div><!-- /.row -->
-	  
-	 <!--Question-->
+		<!--Question-->
 		<div class="col-lg-12">
-		  <h3>What do you think?</h3> 
-			  <h5>Would you this product?</h5>
+		  <h3>What do you think?</h3>
+			  <h5>Would you use this product?</h5>
 		  <form>
 			<label class="radio-inline">
 			  <input type="radio" name="optradio">Yes&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -66,110 +114,138 @@
 		  </form>
 		  <button type="button" class="btn btn-success">Submit</button>
 		</div>
-	<!--/Question-->
-	  
-<!-- Comment
+		<!--/Question-->
+
+      <!-- Comment
     ================================================== -->
 
-<section class="content-item" id="comments">
-    <div class="container">         
-    	<div class="row">
-            <div class="offset-sm-2 col-sm-8">   
-                <form class="pull-xs-right">
-                	<h3 class="pull-xs-left">New Comment</h3>
-                    <fieldset>
-                        <div class="row">
-                            <div class="col-sm-3 col-lg-2 hidden-xs">
-                            	<img class="img-responsive" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-                            </div>
-                            <div class="form-group col-xs-12 offset-sm-2 col-sm-8">
-                                <textarea class="form-control" id="message" placeholder="Your message" required=""></textarea>
-								<button type="submit" class="btn btn-normal pull-sm-right">Submit</button>
-                            </div>
-							
-                        </div>  	
-                    </fieldset>
-                </form>
-                
-                <h3>4 Comments</h3>
-                
-                <!-- COMMENT 1 - START -->
-                <div class="media">
-                    <a class="pull-left" href="#"><img class="media-object" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
-                    <div class="media-body">
-                        <h4 class="media-heading">John Doe</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <ul class="list-unstyled list-inline media-detail pull-left">
-                            <li><i class="fa fa-calendar"></i>27/02/2014</li>
-                            <li><i class="fa fa-thumbs-up"></i>13</li>
-                        </ul>
-                        <ul class="list-unstyled list-inline media-detail pull-right">
-                            <li class=""><a href="">Like</a></li>
-                            <li class=""><a href="">Reply</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- COMMENT 1 - END -->
-                
-                <!-- COMMENT 2 - START -->
-                <div class="media">
-                    <a class="pull-left" href="#"><img class="media-object" src="http://bootdey.com/img/Content/avatar/avatar2.png" alt=""></a>
-                    <div class="media-body">
-                        <h4 class="media-heading">John Doe</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <ul class="list-unstyled list-inline media-detail pull-left">
-                            <li><i class="fa fa-calendar"></i>27/02/2014</li>
-                            <li><i class="fa fa-thumbs-up"></i>13</li>
-                        </ul>
-                        <ul class="list-unstyled list-inline media-detail pull-right">
-                            <li class=""><a href="">Like</a></li>
-                            <li class=""><a href="">Reply</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- COMMENT 2 - END -->
-                
-                <!-- COMMENT 3 - START -->
-                <div class="media">
-                    <a class="pull-left" href="#"><img class="media-object" src="http://bootdey.com/img/Content/avatar/avatar3.png" alt=""></a>
-                    <div class="media-body">
-                        <h4 class="media-heading">John Doe</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <ul class="list-unstyled list-inline media-detail pull-left">
-                            <li><i class="fa fa-calendar"></i>27/02/2014</li>
-                            <li><i class="fa fa-thumbs-up"></i>13</li>
-                        </ul>
-                        <ul class="list-unstyled list-inline media-detail pull-right">
-                            <li class=""><a href="">Like</a></li>
-                            <li class=""><a href="">Reply</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- COMMENT 3 - END -->
-                
-                <!-- COMMENT 4 - START -->
-                <div class="media">
-                    <a class="pull-left" href="#"><img class="media-object" src="http://bootdey.com/img/Content/avatar/avatar4.png" alt=""></a>
-                    <div class="media-body">
-                        <h4 class="media-heading">John Doe</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <ul class="list-unstyled list-inline media-detail pull-left">
-                            <li><i class="fa fa-calendar"></i>27/02/2014</li>
-                            <li><i class="fa fa-thumbs-up"></i>13</li>
-                        </ul>
-                        <ul class="list-unstyled list-inline media-detail pull-right">
-                            <li class=""><a href="">Like</a></li>
-                            <li class=""><a href="">Reply</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- COMMENT 4 - END -->
-            
-            </div>
-        </div>
-    </div>
-</section>
+		<section class="content-item" id="comments">
+			<div class="container">
+				<div class="row">
+					<div class="offset-sm-2 col-sm-8">
+						<form>
+							<h3 class="pull-xs-left">New Comment</h3>
+							<fieldset>
+								<div class="row">
+									<div class="col-sm-3 col-lg-2 hidden-xs">
+										<img class="img-responsive" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+									</div>
+									<div class="form-group col-xs-12 offset-sm-2 col-sm-8">
+										<textarea class="form-control" id="message" placeholder="Your message" required=""></textarea>
+										<button type="submit" class="btn btn-normal pull-sm-right">Submit</button>
+									</div>
+
+								</div>
+							</fieldset>
+						</form>
+
+						<h3>4 Comments</h3>
+
+						<!-- COMMENT 1 - START -->
+						<div class="media">
+							<a class="pull-left" href="#"><img class="media-object" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
+							<div class="media-body">
+								<h4 class="media-heading">John Doe</h4>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+								<ul class="list-unstyled list-inline media-detail pull-left">
+									<li><i class="fa fa-calendar"></i>27/02/2014</li>
+									<li><i class="fa fa-thumbs-up"></i>13</li>
+								</ul>
+								<ul class="list-unstyled list-inline media-detail pull-right">
+									<li class=""><a href="">Like</a></li>
+									<li class=""><a href="">Reply</a></li>
+								</ul>
+							</div>
+						</div>
+						<!-- COMMENT 1 - END -->
+
+						<!-- COMMENT 2 - START -->
+						<div class="media">
+							<a class="pull-left" href="#"><img class="media-object" src="http://bootdey.com/img/Content/avatar/avatar2.png" alt=""></a>
+							<div class="media-body">
+								<h4 class="media-heading">Ray Harton</h4>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+								<ul class="list-unstyled list-inline media-detail pull-left">
+									<li><i class="fa fa-calendar"></i>27/02/2014</li>
+									<li><i class="fa fa-thumbs-up"></i>13</li>
+								</ul>
+								<ul class="list-unstyled list-inline media-detail pull-right">
+									<li class=""><a href="">Like</a></li>
+									<li class=""><a href="">Reply</a></li>
+								</ul>
+							</div>
+						</div>
+						<!-- COMMENT 2 - END -->
+
+						<!-- COMMENT 3 - START -->
+						<div class="media">
+							<a class="pull-left" href="#"><img class="media-object" src="http://bootdey.com/img/Content/avatar/avatar3.png" alt=""></a>
+							<div class="media-body">
+								<h4 class="media-heading">Kate Conine</h4>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+								<ul class="list-unstyled list-inline media-detail pull-left">
+									<li><i class="fa fa-calendar"></i>27/02/2014</li>
+									<li><i class="fa fa-thumbs-up"></i>13</li>
+								</ul>
+								<ul class="list-unstyled list-inline media-detail pull-right">
+									<li class=""><a href="">Like</a></li>
+									<li class=""><a href="">Reply</a></li>
+								</ul>
+							</div>
+						</div>
+						<!-- COMMENT 3 - END -->
+
+						<!-- COMMENT 4 - START -->
+						<div class="media">
+							<a class="pull-left" href="#"><img class="media-object" src="http://bootdey.com/img/Content/avatar/avatar4.png" alt=""></a>
+							<div class="media-body">
+								<h4 class="media-heading">Mitchel Milburn</h4>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+								<ul class="list-unstyled list-inline media-detail pull-left">
+									<li><i class="fa fa-calendar"></i>27/02/2014</li>
+									<li><i class="fa fa-thumbs-up"></i>13</li>
+								</ul>
+								<ul class="list-unstyled list-inline media-detail pull-right">
+									<li class=""><a href="">Like</a></li>
+									<li class=""><a href="">Reply</a></li>
+								</ul>
+							</div>
+						</div>
+						<!-- COMMENT 4 - END -->
+
+					</div>
+				</div>
+			</div>
+		</section>
+      <!-- FOOTER -->
+      <footer>
+        <p class="float-xs-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
     </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+    <script src="docs/dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="docs/assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+	<script src="project_page.js"></script>
+	<script>
+		var image = '<img class="img" src="images/idea-badge.png">';
+		$('#badge-list').popover({content: image, html: true});
+	</script>
+	<script>
+		$('#badge-vote').popover({content: image, html: true});
+	</script>
 
     {% endblock %} 
 
