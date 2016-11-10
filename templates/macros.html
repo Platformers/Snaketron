@@ -1,10 +1,16 @@
 {% macro render_field(field) %}
-    <div class="field">
-        {% if field.errors %}
-            {% for error in field.errors %}
-                <div class="notification error">{{ error }}</div>
-            {% endfor %}
-        {% endif %}
-        {{ field(placeholder=field.label.text) }}
+    {% if field.errors %}
+        {% for error in field.errors %}
+            <div class="col-xs-12 alert-warning">
+                {{ error }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div class="form-group row">
+    {% if field.label.text != 'Csrf Token' %}
+        {{ field.label(class='offset-xs-1 col-xs-4') }}
+        {{ field(class='col-xs-5',placeholder=field.label.text) }}
+    {% endif %}
     </div>
+
 {% endmacro %}

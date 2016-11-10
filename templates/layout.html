@@ -19,15 +19,23 @@
             <link rel="stylesheet" href="{{ url_for('static',
             filename='css/main.css') }}">
             {% endblock %}
+
+            {% assets "scss_all" %}
+                <link rel="stylesheet" href="{{ ASSET_URL }}">
+            {% endassets %}
     </head>
-    <body>
+    <body class="p-t-3">
         {% block navigation %}
-            <nav class="navbar navbar-static">
+            <nav class="navbar navbar-fixed-top">
                 <div class="container">
                     {% if current_user.is_authenticated %}
-                        <a class="navbar-brand pull-md-left" href="/home">Snaketron Labs</a>
+                        <a class="navbar-brand float-md-left" href="{{ url_for('home') }}">
+                            <img src="{{ url_for('static', filename='img/snaketron.svg') }}" width="25%">
+                        </a>
                     {% else %}
-                        <a class="navbar-brand pull-md-left" href="/">Snaketron Labs</a>
+                        <a class="navbar-brand float-md-left" href="/">
+                            <img src="{{ url_for('static', filename='img/snaketron.svg') }}" width="25%">
+                        </a>
                     {% endif %}
                     <ul class="nav navbar-nav pull-md-right">
                             {% if current_user.is_authenticated %}
@@ -36,8 +44,9 @@
                                     }}">Projects</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url_for('profile') }}">{{
-                                        current_user.first_name }}</a>
+                                    <a class="nav-link" href="{{ url_for('profile', username=current_user.username) }}">
+                                        My Profile
+                                    </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" 
