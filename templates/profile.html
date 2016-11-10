@@ -23,6 +23,9 @@
                         <li class="list-group-item">Email: {{ current_user.email }}</li>
                     </ul>
                 </div>
+			  <h2>Name Here</h2>
+			  <!--Member Status-->
+			  <h3>Expert</h3>
 			</div>
 		</div><!-- /.col-lg-4 -->
 		
@@ -31,7 +34,7 @@
         <div class="offset-lg-6 col-lg-8">
 		<div class="row">
 			 <div class ="col-md-8">
-			 <h2>{{ current_user.first_name + ' ' + current_user.last_name }}</h2>
+			 <h2>Name Here's Stats</h2>
 			  </div>
 		</div>	  
 				<div class="col-lg-2">
@@ -71,19 +74,32 @@
 			<div class="row">  
 			  <div class="col-lg-8">
                   <img class="img-circle" src="{{ url_for('static',
-                  filename='img/idea-badge.png') }}" alt="Generic placeholder image" width="60" height="60">
+                  filename='{{ url_for('static', filename='img/bronze-comment.png') }}" alt="Generic placeholder image" width="60" height="60">
                   <img class="img-circle" src="{{ url_for('static',
-                  filename='img/robot-badge.png') }}" alt="Generic placeholder image" width="60" height="60">
+                  filename='img/helpful-silver.png') }}" alt="Generic placeholder image" width="60" height="60">
                   <img class="img-circle" src="{{ url_for('static',
+                  filename='img/silver-thumbs.png') }}" alt="Generic placeholder image" width="60" height="60">
+                  <img class="img-circle" src="{{ url_for('static',
+                  filename='img/solver-gold.png') }}" alt="Generic placeholder image" width="60" height="60">
+                  <img class="img-circle" src="{{ url_for('static',
+                  filename='img/replies-gold.png') }}" alt="Generic placeholder image" width="60" height="60">
+                 <!-- <img class="img-circle" src="{{ url_for('static',
                   filename='img/comment-badge.png') }}" alt="Generic placeholder image" width="60" height="60">
-                  <img class="img-circle" src="{{ url_for('static',
-                  filename='img/idea-badge.png') }}" alt="Generic placeholder image" width="60" height="60">
-                  <img class="img-circle" src="{{ url_for('static',
-                  filename='img/robot-badge.png') }}" alt="Generic placeholder image" width="60" height="60">
-                  <img class="img-circle" src="{{ url_for('static',
-                  filename='img/comment-badge.png') }}" alt="Generic placeholder image" width="60" height="60">
+				  -->
 			   </div>
 			   <div class="col-lg-8">
+
+			   <!--Popover button for new badge-->
+			   <button id="new-badge" type="button" class="btn btn-secondary"
+			   title="Congratulations!"data-container="body" data-toggle="popover"
+			   data-placement="left"
+			   data-content="You have earned a new badge. <br><img src='img/replies-gold.png' alt='badge width='80px' height='80px''> <br>
+			   Do you want to share on social media?<br> <img src='img/facebook.png' alt='facebook' width='50px' height='50px'>
+			   <img src='img/twitter.png' alt='facebook' width='50px' height='50px'>
+			   <img src='img/instagram.png' alt='facebook' width='50px' height='50px'>">
+				  New Badge
+				</button>
+
 			   <a class="btn btn-secondary" href="#" role="button">View all</a>
 			   </div>
 			 </div>
@@ -91,49 +107,7 @@
 		</div>
 		
 		</div><!-- /.row -->
-	
 
-      <!-- START THE FEATURETTES -->
-
-      <!--<hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-fluid m-x-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7 push-md-5">
-          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5 pull-md-7">
-          <img class="featurette-image img-fluid m-x-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-fluid m-x-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider"> -->
-
-      <!-- /END THE FEATURETTES -->
 
 	<div class="myactivities">
 		<div class="col-lg-12>">
@@ -183,4 +157,10 @@
     <script src="https://v4-alpha.getbootstrap.com/assets/js/vendor/holder.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="https://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+	<!--js to make the images appear on popover-->
+	<script>
+	var image = '<img src="img/replies-gold.png" alt="badge">';
+		$('#new-badge').popover({content: image, html: true});
+	</script>
 {% endblock %}
