@@ -17,6 +17,8 @@
                 <img class="img-circle" src="{{ url_for('static',
                 filename='img/profpic.png') }}" alt="Generic placeholder image" width="140" height="140">
 			  <h2>Name Here</h2>
+			  <!--Member Status-->
+			  <h3>Expert</h3>
 			</div>
 		</div><!-- /.col-lg-4 -->
 		
@@ -79,6 +81,18 @@
 				  -->
 			   </div>
 			   <div class="col-lg-8">
+			   
+			   <!--Popover button for new badge-->
+			   <button id="new-badge" type="button" class="btn btn-secondary" 
+			   title="Congratulations!"data-container="body" data-toggle="popover" 
+			   data-placement="left" 
+			   data-content="You have earned a new badge. <br><img src='img/replies-gold.png' alt='badge width='80px' height='80px''> <br> 
+			   Do you want to share on social media?<br> <img src='img/facebook.png' alt='facebook' width='50px' height='50px'>
+			   <img src='img/twitter.png' alt='facebook' width='50px' height='50px'>
+			   <img src='img/instagram.png' alt='facebook' width='50px' height='50px'>">
+				  New Badge
+				</button>
+				
 			   <a class="btn btn-secondary" href="#" role="button">View all</a>
 			   </div>
 			 </div>
@@ -136,4 +150,10 @@
     <script src="https://v4-alpha.getbootstrap.com/assets/js/vendor/holder.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="https://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+	
+	<!--js to make the images appear on popover-->
+	<script>
+	var image = '<img src="img/replies-gold.png" alt="badge">';
+		$('#new-badge').popover({content: image, html: true});
+	</script>
 {% endblock %}
