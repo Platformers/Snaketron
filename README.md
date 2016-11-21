@@ -50,3 +50,7 @@ Built with:
 
 3. Clone the Repository
   ```git clone https://github.com/StevenTurturo/Snaketron.git```
+
+  ## Windows:
+    * 1. Download Python 3.5.X - [https://www.python.org/downloads/release/python-352/] Download Here!
+    * 2.

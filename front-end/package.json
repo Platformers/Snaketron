@@ -1,0 +1,19 @@
+{
+    "name": "Snaketron Labs",
+    "version": "0.0.1",
+    "scripts": {
+        "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+        "lite": "lite-server",
+        "tsc": "tsc",
+        "tsc:w": "tsc -w"
+    },
+    "licenses": [{
+        "type": "MIT",
+        "url": ""
+        }
+    ],
+    "dependencies": {
+        "@angular/common": "~2.1.2",
+        "@angular/compiler": 
+
+
