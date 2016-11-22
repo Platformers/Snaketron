@@ -1,0 +1,159 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  padding-bottom: 3rem;
+  color: #5a5a5a;
+}
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  margin-bottom: 4rem;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+  background-color: rgba(75,75,75,0.8);
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 32rem;
+  background-color: #777;
+}
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 32rem;
+}
+
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/*description*/
+.marketing .col-xs-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  padding-right: 6rem;
+  
+  
+}
+
+#badge{
+padding-top: 1rem;
+}
+table {
+  width: 80%;
+  margin: 0;
+  background: #FFFFFF;
+  border: 1px solid #333333;
+  border-collapse: collapse;
+}
+td, th {
+  border-bottom: 1px solid #333333;
+  padding: 6px 16px;
+  text-align: left;
+}
+/*question*/
+.col-lg-12{
+	text-align:center;
+	padding-bottom: 3rem;
+	padding-top: 3rem;
+	border-bottom: thin solid lightgray;
+	border-top: thin solid lightgray;
+}
+.row .btn-secondary{
+	
+}
+
+
+/*comments
+--------------------------------------------------*/
+#comments .offset-sm-2{background-color: #f2f2f2;
+margin-top: 40px;}
+#comments {
+	background-color:#FFFFFF;
+	
+}
+
+#comments form {
+	margin-bottom:30px;
+}
+
+#comments .btn {
+	margin-top:7px;
+}
+
+#comments form fieldset {
+	clear:both;
+}
+
+#comments form textarea {
+	height:100px;
+}
+
+#comments .media {
+	border-top:1px dashed #404040;
+	padding:20px 0;
+	margin:0;
+}
+
+#comments .media > .pull-left {
+    margin-right:20px;
+}
+
+#comments .media img {
+	max-width:50px;
+}
+
+#comments .media h4 {
+	margin:0 0 10px;
+}
+#comments .img-responsive{
+	width: 130px;
+}
+
+#comments .media h4 span {
+	font-size:14px;
+	float:right;
+	color:#999999;
+}
+
+#comments .media p {
+	margin-bottom:15px;
+	text-align:justify;
+}
+
+#comments .media-detail {
+	margin:0;
+}
+
+#comments .media-detail li {
+	color:#4d4d4d;
+	font-size:12px;
+	padding-right: 10px;
+	font-weight:600;
+}
+
+#comments .media-detail a:hover {
+	text-decoration:underline;
+}
+
+#comments .media-detail li:last-child {
+	padding-right:0;
+}
+
+#comments .media-detail li i {
+	color:#666666;
+	font-size:15px;
+	margin-right:10px;
+}
