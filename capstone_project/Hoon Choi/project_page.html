@@ -1,25 +1,64 @@
-{% extends 'layout.html' %}
+	
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<!--
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="docs/favicon.ico">
+	-->
+    <title>Project Page</title>
 
-        {% block stylesheets %}
-		<!-- Custom styles for this template -->
-        {{ super() }}
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">        <link href="{{ url_for('static', filename='css/project_page.css') }}" rel="stylesheet">
-        {% endblock %}
-        {% block content %}
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-		<div class="carousel-inner" role="listbox">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="project_page.css" rel="stylesheet">
+	<!-- font awesome link -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-static-top navbar-light bg-faded">
+      <a href="#" class="navbar-brand">Carousel</a>
+      <ul class="nav navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+      </ul>
+    </nav>
+
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner" role="listbox">        
 			<div class="carousel-item active">
-				<img class="second-slide" src="{{ url_for('static', filename='img/projectimg.jpg') }}" alt="Project image">
+				<img class="second-slide" src="images/projectimg.jpg" alt="Project image">
 				<div class="container">
 					<div class="carousel-caption">
-						<h1>Michael Keaton's Financial Advice</h1>
-						<p>Get one on one advice from Michael Keaton, the best Batman of all Batmans.</p>
+						<h1>Selected Project name</h1>
+						<p>One line of description</p>
 						<p><a class="btn btn-primary" href="#" role="button" >Enroll</a></p>
-
+						
 					</div>
 				</div>
-			</div>
-		</div>
+			</div>        
+		</div>     
     </div><!-- /.carousel -->
 
 
@@ -37,85 +76,85 @@
 		  Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
           <p><a class="btn btn-primary" href="#" role="button">Enroll</a></p>
         </div><!-- /.col-lg-8 -->
-
+		
 		<!-- person, comment, #days on the right side of the description-->
         <div class="col-xs-4">
           <i class="fa fa-user fa-3x"></i>
+		  <p>#</p>
 		  <i class="fa fa-comments fa-3x"></i>
-		  <p>Number of days left: 34</p>
-			<img class="img" src="{{ url_for('static', filename='img/robot-badge.png') }}" alt="robot-badge" width="30" height="30">
-			<img class="img" src="{{ url_for('static', filename='img/comment-badge.png') }}" alt="comment-badge" width="30" height="30">
-			<img class="img" src="{{ url_for('static', filename='img/idea-badge.png') }}" alt="idea-badge" width="30" height="30">
-
+		  <p>#</p>
+		  <p># of days left</p>
+			<img class="img" src="images/robot-badge.png" alt="robot-badge" width="30" height="30">
+			<img class="img" src="images/comment-badge.png" alt="comment-badge" width="30" height="30">
+			<img class="img" src="images/idea-badge.png" alt="idea-badge" width="30" height="30">
+			
 			<div id="badge">
-				<button id="badge-vote" class="btn btn-secondary btn-sm fa fa-thumbs-up" title="Acknowledgments" data-container="body"
-					data-toggle="popover" data-placement="left"
+				<button id="badge-vote" class="btn btn-secondary btn-sm fa fa-thumbs-up" title="Acknowledgments" data-container="body" 
+					data-toggle="popover" data-placement="left"  
 					data-content="
-
+					
 					<table>
 					<tr>
-					<td><img src='static/img/robot-badge.png' width='30' height='30'></td>
-					<td>Automation Badge</td>
-					<td>25</td>
-					</tr>
-
-					<tr>
-					<td><img src='static/img/comment-badge.png' width='30' height='30'></td>
+					<td><img src='images/robot-badge.png' width='30' height='30'></td>
 					<td>name</td>
 					<td>#</td>
 					</tr>
-
+					
 					<tr>
-					<td><img src='static/img/idea-badge.png' width='30' height='30'></td>
+					<td><img src='images/comment-badge.png' width='30' height='30'></td>
 					<td>name</td>
 					<td>#</td>
 					</tr>
-
+					
 					<tr>
-					<td><img src='static/img/shoot-bronze.png' width='30' height='30'></td>
+					<td><img src='images/idea-badge.png' width='30' height='30'></td>
+					<td>name</td>
+					<td>#</td>
+					</tr>
+					
+					<tr>
+					<td><img src='images/shoot-bronze.png' width='30' height='30'></td>
 					<td>name</td>
 					<td>#</td>
 					</tr>
 					</table>
-
+					
 					"
 				>
 				</button>
-
-				<button id="badge-list" type="button" class="btn btn-secondary btn-sm" title="List of badges" data-container="body"
-				data-toggle="popover" data-placement="top" data-trigger="focus"
+				
+				<button id="badge-list" type="button" class="btn btn-secondary btn-sm" title="List of badges" data-container="body" 
+				data-toggle="popover" data-placement="top" data-trigger="focus"				
 				data-content="
-				<img src='static/img/robot-badge.png' width='30' height='30'>
-				<img src='static/img/comment-badge.png' width='30' height='30'>
-				<img src='static/img/idea-badge.png' width='30' height='30'>
-				<img src='static/img/shoot-bronze.png' width='30' height='30'>
+				<img src='images/robot-badge.png' width='30' height='30'>
+				<img src='images/comment-badge.png' width='30' height='30'>
+				<img src='images/idea-badge.png' width='30' height='30'>
+				<img src='images/shoot-bronze.png' width='30' height='30'>
 				"
 				>
 					View
 				</button>
 			</div>
 		</div><!--/ ### on the right of the description-->
-
+		
       </div><!-- /.row -->
-        <div class="row m-y-3">
 		<!--Question-->
-            <div class="offset-md-3 col-md-6 text-xs-center">
-                  <h3>What do you think?</h3>
-                      <h5>Would you use this product?</h5>
-                  <form>
-                    <label class="radio-inline">
-                      <input type="radio" name="optradio">Yes&nbsp&nbsp&nbsp&nbsp&nbsp
-                    </label>
-                    <label class="radio-inline">
-                      <input type="radio" name="optradio">No
-                    </label>
-                  </form>
-                  <button type="button" class="btn btn-success btn-block">Submit</button>
-            </div>
+		<div class="col-lg-12">
+		  <h3>What do you think?</h3> 
+			  <h5>Would you use this product?</h5>
+		  <form>
+			<label class="radio-inline">
+			  <input type="radio" name="optradio">Yes&nbsp&nbsp&nbsp&nbsp&nbsp
+			</label>
+			<label class="radio-inline">
+			  <input type="radio" name="optradio">No
+			</label>
+		  </form>
+		  <button type="button" class="btn btn-success">Submit</button>
 		</div>
 		<!--/Question-->
 
-   <!-- Comment
+      <!-- Comment
     ================================================== -->
 
 		<section class="content-item" id="comments">
@@ -229,18 +268,30 @@
     </div><!-- /.container -->
 
 
-
-    {% endblock %}
-    {% block scripts %}
-        {{ super() }}
-        <script src="{{ url_for('static', filename='js/project_page.js') }}"></script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+	
+	
+	
+    
+	
+	<script src="project_page.js"></script>
 	<script>
-		var image = '<img class="img" src="static/img/idea-badge.png">';
-		$('#badge-list').popover({ image: image, html: true});
+		var image = '<img class="img" src="images/idea-badge.png">';
+		$('#badge-list').popover({content: image, html: true});
 	</script>
 	<script>
-		$('#badge-vote').popover({html: true});
+		$('#badge-vote').popover({content: image, html: true});
 	</script>
-    {% endblock %}
+	
+	
 
-<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="25" style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif">500x500</text></svg></body></html>
+	
+	
+  </body>
+</html>
