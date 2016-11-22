@@ -49,10 +49,15 @@ Built with:
   * `pip install virtualenv`
 
 3. Clone the Repository
-  ```git clone https://github.com/StevenTurturo/Snaketron.git```
+  ```git clone https://github.com/Platformers/Snaketron.git```
+  OR
+  ```git clone git@github.com:Platformers/Snaketron.git```
 
   ## Windows:
+  If you do not have Git installed or the Github Desktop app installed [click here](https://help.github.com/articles/set-up-git/#platform-windows) to get started. Follow the tutorial.
+  
     * 1. Download Python 3.5.X - [Download Here!](https://www.python.org/downloads/release/python-352/)
     * 2. Run either the Web Executable or Downloaded .exe file
     * 3. In the Command Line run: ```pip install --upgrade pip```
-    * 4.
+    * 4. Download and Install [Postgresql](http://www.enterprisedb.com/products-services-training/pgdownload#windows)
+    * 5.
