@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="332f7428-ab60-4983-b6b6-0aa2ddee8dbc" name="Default" comment="" />
+=======
+    <list default="true" id="332f7428-ab60-4983-b6b6-0aa2ddee8dbc" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layout.html" afterPath="$PROJECT_DIR$/templates/layout.html" />
+    </list>
+>>>>>>> origin/master
     <ignored path="Snaketron.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -37,11 +46,26 @@
       <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="1276">
               <caret line="69" column="13" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
+=======
+            <state relative-caret-position="531">
+              <caret line="136" column="39" selection-start-line="136" selection-start-column="39" selection-end-line="136" selection-end-column="39" />
+>>>>>>> origin/master
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/layout.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="42" column="112" selection-start-line="42" selection-start-column="112" selection-end-line="42" selection-end-column="112" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -69,8 +93,13 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="596">
               <caret line="57" column="2" selection-start-line="57" selection-start-column="2" selection-end-line="57" selection-end-column="2" />
+=======
+            <state relative-caret-position="483">
+              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
@@ -101,8 +130,23 @@
       <file leaf-file-name="project.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/project.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="3322">
               <caret line="151" column="37" selection-start-line="151" selection-start-column="37" selection-end-line="151" selection-end-column="37" />
+=======
+            <state relative-caret-position="133">
+              <caret line="102" column="42" selection-start-line="102" selection-start-column="42" selection-end-line="102" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="projects.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/projects.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
@@ -132,17 +176,20 @@
         <option value="$PROJECT_DIR$/static/img/snaketron.svg" />
         <option value="$PROJECT_DIR$/forms.py" />
         <option value="$PROJECT_DIR$/old_models.py" />
-        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/static/js/popover.js" />
         <option value="$PROJECT_DIR$/static/css/scss/hoon.scss" />
         <option value="$PROJECT_DIR$/static/css/scss/_variables.scss" />
         <option value="$PROJECT_DIR$/static/css/scss/_path.scss" />
-        <option value="$PROJECT_DIR$/templates/layout.html" />
         <option value="$PROJECT_DIR$/static/css/scss/styles.css.scss" />
-        <option value="$PROJECT_DIR$/templates/project.html" />
         <option value="$PROJECT_DIR$/templates/profile.html" />
         <option value="$PROJECT_DIR$/README.md" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/templates/projects.html" />
+=======
+        <option value="$PROJECT_DIR$/templates/project.html" />
+        <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/templates/layout.html" />
+>>>>>>> origin/master
       </list>
     </option>
   </component>
@@ -226,25 +273,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Snaketron" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Snaketron" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="capstone_project" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -863,6 +892,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1276">
@@ -873,6 +903,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> origin/master
     <entry file="file://$PROJECT_DIR$/static/css/scss/hoon.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4202">
@@ -930,40 +962,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/project.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3322">
-          <caret line="151" column="37" selection-start-line="151" selection-start-column="37" selection-end-line="151" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/profile.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
           <caret line="36" column="38" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/scss/styles.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
+<<<<<<< HEAD
+        <state relative-caret-position="3322">
+          <caret line="151" column="37" selection-start-line="151" selection-start-column="37" selection-end-line="151" selection-end-column="37" />
+=======
+        <state relative-caret-position="27">
           <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="246">
+          <caret line="36" column="38" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
+=======
+        <state relative-caret-position="483">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+>>>>>>> origin/master
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/project.html">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="154">
+          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+=======
+        <state relative-caret-position="133">
+          <caret line="102" column="42" selection-start-line="102" selection-start-column="42" selection-end-line="102" selection-end-column="42" />
+>>>>>>> origin/master
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/projects.html">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="596">
           <caret line="57" column="2" selection-start-line="57" selection-start-column="2" selection-end-line="57" selection-end-column="2" />
+=======
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="136" column="39" selection-start-line="136" selection-start-column="39" selection-end-line="136" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="42" column="112" selection-start-line="42" selection-start-column="112" selection-end-line="42" selection-end-column="112" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
