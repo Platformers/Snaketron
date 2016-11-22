@@ -33,101 +33,56 @@ body {
   min-width: 100%;
   height: 32rem;
 }
-.container{
-background-color: rgba(255,255,255,0.4);}
-
 
 
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
 
+/*description*/
 .marketing .col-xs-4 {
   margin-bottom: 1.5rem;
   text-align: center;
   padding-right: 6rem;
-}
-.marketing h2 {
-  font-weight: normal;
-}
-.marketing .col-lg-4 p {
-	
-  margin-right: .75rem;
-  margin-left: .75rem;
+  
+  
 }
 
+#badge{
+padding-top: 1rem;
+}
+table {
+  width: 80%;
+  margin: 0;
+  background: #FFFFFF;
+  border: 1px solid #333333;
+  border-collapse: collapse;
+}
+td, th {
+  border-bottom: 1px solid #333333;
+  padding: 6px 16px;
+  text-align: left;
+}
+/*question*/
 .col-lg-12{
 	text-align:center;
 	padding-bottom: 3rem;
 	padding-top: 3rem;
 	border-bottom: thin solid lightgray;
 	border-top: thin solid lightgray;
+}
+.row .btn-secondary{
 	
 }
 
 
-
-
-
-
-
-
-
-body{margin-top:20px;}
-
-.content-item {
-    padding:30px 0;
-	background-color:#FFFFFF;
-}
-
-.content-item.grey {
-	background-color:#F0F0F0;
-	padding:50px 0;
-	height:100%;
-}
-
-.content-item h2 {
-	font-weight:700;
-	font-size:35px;
-	line-height:45px;
-	text-transform:uppercase;
-	margin:20px 0;
-}
-
-.content-item h3 {
-	font-weight:400;
-	font-size:20px;
-	color:#555555;
-	margin:10px 0 15px;
-	padding:0;
-}
-
-.content-headline {
-	height:1px;
-	text-align:center;
-	margin:20px 0 70px;
-}
-
-.content-headline h2 {
-	background-color:#FFFFFF;
-	display:inline-block;
-	margin:-20px auto 0;
-	padding:0 20px;
-}
-
-.grey .content-headline h2 {
-	background-color:#F0F0F0;
-}
-
-.content-headline h3 {
-	font-size:14px;
-	color:#AAAAAA;
-	display:block;
-}
-
-
+/*comments
+--------------------------------------------------*/
+#comments .offset-sm-2{background-color: #f2f2f2;
+margin-top: 40px;}
 #comments {
 	background-color:#FFFFFF;
+	
 }
 
 #comments form {
@@ -147,7 +102,7 @@ body{margin-top:20px;}
 }
 
 #comments .media {
-	border-top:1px dashed #DDDDDD;
+	border-top:1px dashed #404040;
 	padding:20px 0;
 	margin:0;
 }
@@ -183,7 +138,7 @@ body{margin-top:20px;}
 }
 
 #comments .media-detail li {
-	color:#AAAAAA;
+	color:#4d4d4d;
 	font-size:12px;
 	padding-right: 10px;
 	font-weight:600;
@@ -202,4 +157,3 @@ body{margin-top:20px;}
 	font-size:15px;
 	margin-right:10px;
 }
-
