@@ -129,6 +129,13 @@ def create_project():
     else:
         return 'DID NOT COMPUTE'
 
+@app.route('/list_all_projects', methods=['GET','POST'])
+def all_projects():
+    if request.method == 'GET':
+        return render_template('projects.html')
+    else:
+        return 'DID NOT CREATE DATA!!!!'
+
 if __name__ == '__main__':
     old_models.initialize()
     try:
