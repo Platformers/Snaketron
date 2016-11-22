@@ -52,6 +52,7 @@ Built with:
   ```git clone https://github.com/StevenTurturo/Snaketron.git```
 
   ## Windows:
-    * 1. Download Python 3.5.X - [https://www.python.org/downloads/release/python-352/]: Download Here!
+    * 1. Download Python 3.5.X - [Download Here!](https://www.python.org/downloads/release/python-352/)
     * 2. Run either the Web Executable or Downloaded .exe file
-    * 3. In the Command Line run ```pip install --upgrade pip```
+    * 3. In the Command Line run: ```pip install --upgrade pip```
+    * 4.
