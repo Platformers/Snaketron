@@ -16,7 +16,7 @@
       <!-- Indicators -->
       <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
-          <img class="first-slide" src="{{ url_for('static', filename='img/business1.jpg') }} alt="First slide">
+          <img class="first-slide" src="{{ url_for('static', filename='img/business1.jpg') }} alt="First slide" >
           <div class="container">
             <div class="carousel-caption">
               <h1>Projects</h1>
@@ -43,11 +43,11 @@
 				<div class="row">
 					<div class="col-lg-4">
 						<div class="card">
-							<img class="card-img-top w-100" src="Images/activity3.jpg" alt="act1">
+							<img class="card-img-top w-100" src="{{ url_for('static', filename='img/activity3.jpg') }} alt="act1">
 							<div class="card-block">
 								<h3>Badge Implementation</h3>
 								<p> To reward out users for their dedicated service we will be implementing
-									a badging system that will allow useres to receive credit and aclaim for
+									a badging system that will allow users to receive credit and acclaim for
 									being an active user.</p>
 							</div>
 							<div class="card-footer">
@@ -61,11 +61,11 @@
 				
 					<div class="col-lg-4">
 						<div class="card">
-							<img class="card-img-top w-100" src="Images/activity1.jpg" alt="act1">
+							<img class="card-img-top w-100" src="{{ url_for('static', filename='img/activity1.jpg')}} alt="act1">
 							<div class="card-block">
 								<h3>Member Idea Reviews</h3>
 								<p> This new feature will allow premium active users to get their ideas viewd by our company. The members
-								with ideas that our company sees merit in will be given the oppurtunity to work with us to make it a reality</p>
+								with ideas that our company sees merit in will be given the opportunity to work with us to make it a reality</p>
 							</div>
 							<div class="card-footer">
 								<a href="#">> View</a>
@@ -77,10 +77,10 @@
 				
 					<div class="col-lg-4">
 						<div class="card">
-							<img class="card-img-top w-100" src="Images/keaton.png" alt="act1">
+							<img class="card-img-top w-100" src="{{ url_for('static', filename='img/keaton.png') }} alt="act1">
 							<div class="card-block">
 								<h3>The Keaton Revival Project</h3>
-								<p> This projcet is meant to look into underappreciated ideas that need to be looked into and reevaluelated for revival.</p>
+								<p> This project is meant to look into unappreciated ideas that need to be looked into and reevaluated for revival.</p>
 							</div>
 							<div class="card-footer">
 								<a href="#">> View</a>
@@ -92,7 +92,7 @@
 				<div class="row">
 					<div class="col-lg-4">
 						<div class="card">
-							<img class="card-img-top w-100" src="Images/activity2.jpg" alt="act1">
+							<img class="card-img-top w-100" src="{{ url_for('static', filename='img/activity2.jpg') }} alt="act1">
 							<div class="card-block">
 								<h3>Social Media component addition</h3>
 								<p> Projects goal is to gauge member interest in the platform creating a social media component that allows members to befriend 
