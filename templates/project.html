@@ -1,12 +1,12 @@
 {% extends 'layout.html' %}
-
-        {% block stylesheets %}
-		<!-- Custom styles for this template -->
+    {% block stylesheets %}
         {{ super() }}
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">        <link href="{{ url_for('static', filename='css/project_page.css') }}" rel="stylesheet">
-        {% endblock %}
-        {% block content %}
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<link href="{{ url_for('static',filename='css/project_page.css') }}" rel="stylesheet">
+	{% endblock %}
+	{% block content %}
+    <!-- Carousel
+    ================================================== -->		
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner" role="listbox">
 			<div class="carousel-item active">
 				<img class="second-slide" src="{{ url_for('static', filename='img/projectimg.jpg') }}" alt="Project image">
@@ -15,7 +15,6 @@
 						<h1>Michael Keaton's Financial Advice</h1>
 						<p>Get one on one advice from Michael Keaton, the best Batman of all Batmans.</p>
 						<p><a class="btn btn-primary" href="#" role="button" >Enroll</a></p>
-
 					</div>
 				</div>
 			</div>
@@ -234,13 +233,14 @@
     {% block scripts %}
         {{ super() }}
         <script src="{{ url_for('static', filename='js/project_page.js') }}"></script>
-	<script>
-		var image = '<img class="img" src="static/img/idea-badge.png">';
-		$('#badge-list').popover({ image: image, html: true});
-	</script>
-	<script>
-		$('#badge-vote').popover({html: true});
-	</script>
+		<script>
+			var image = '<img class="img" src="static/img/idea-badge.png">';
+			$('#badge-list').popover({ image: image, html: true});
+		</script>
+		<script>
+			$('#badge-vote').popover({html: true});
+		</script>
+		<script src="https://use.fontawesome.com/670482e323.js"></script>
     {% endblock %}
 
 <svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="25" style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif">500x500</text></svg></body></html>
