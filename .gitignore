@@ -3,4 +3,6 @@ bin
 bin/*
 lib/
 include/
+.idea/*
 
+.idea/workspace.xml
