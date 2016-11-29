@@ -50,7 +50,9 @@ def after_request(response):
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    if not current_user.is_authenticated:
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    else:
         form = forms.RegistrationForm()
         if form.validate_on_submit():
             flash('You have Successfully Registered!', 'success')
@@ -63,13 +65,13 @@ def register():
             )
             return redirect(url_for('home'))
         return render_template('register.html', form=form)
-    else:
-        return redirect(url_for('home'))
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if not current_user.is_authenticated:
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    else:
         form = forms.LoginForm()
         if form.validate_on_submit():
             try:
@@ -84,8 +86,8 @@ def login():
                     return redirect(url_for('home'))
                 else:
                     flash("Your username or password do not match our records")
-    else:
-        return redirect(url_for('home'))
+        return render_template('login.html', form=form)
+
 
 @app.route('/logout', methods=['GET', 'POST'])
 @login_required
