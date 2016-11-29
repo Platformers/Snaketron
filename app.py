@@ -50,36 +50,42 @@ def after_request(response):
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    form = forms.RegistrationForm()
-    if form.validate_on_submit():
-        flash('You have Successfully Registered!', 'success')
-        old_models.User.create_user(
-            username=form.username.data,
-            password=form.password.data,
-            email=form.email.data,
-            first_name=form.first_name.data,
-            last_name=form.last_name.data
-        )
+    if not current_user.is_authenticated:
+        form = forms.RegistrationForm()
+        if form.validate_on_submit():
+            flash('You have Successfully Registered!', 'success')
+            old_models.User.create_user(
+                username=form.username.data,
+                password=form.password.data,
+                email=form.email.data,
+                first_name=form.first_name.data,
+                last_name=form.last_name.data
+            )
+            return redirect(url_for('home'))
+        return render_template('register.html', form=form)
+    else:
         return redirect(url_for('home'))
-    return render_template('register.html', form=form)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    form = forms.LoginForm()
-    if form.validate_on_submit():
-        try: 
-            user = old_models.User.get(old_models.User.username == form.username.data)
-        except old_models.DoesNotExist:
-            flash("Your username or password do not match our records",
-                  "error")
-        else:
-            if check_password_hash(user.password, form.password.data):
-                login_user(user)
-                flash('You have successfully logged in!')
-                return redirect(url_for('home'))
+    if not current_user.is_authenticated:
+        form = forms.LoginForm()
+        if form.validate_on_submit():
+            try:
+                user = old_models.User.get(old_models.User.username == form.username.data)
+            except old_models.DoesNotExist:
+                flash("Your username or password do not match our records",
+                      "error")
             else:
-                flash("Your username or password do not match our records")
-    return render_template('login.html', form=form)
+                if check_password_hash(user.password, form.password.data):
+                    login_user(user)
+                    flash('You have successfully logged in!')
+                    return redirect(url_for('home'))
+                else:
+                    flash("Your username or password do not match our records")
+    else:
+        return redirect(url_for('home'))
 
 @app.route('/logout', methods=['GET', 'POST'])
 @login_required
@@ -130,11 +136,24 @@ def create_project():
         return 'DID NOT COMPUTE'
 
 @app.route('/list_all_projects', methods=['GET','POST'])
+@login_required
 def all_projects():
     if request.method == 'GET':
         return render_template('projects.html')
     else:
         return 'DID NOT CREATE DATA!!!!'
+
+
+@app.route('/project_one')
+@login_required
+def project_one():
+    return render_template('project.html')
+
+
+@app.route('/project_two')
+@login_required
+def project_two():
+    return render_template('project2.html')
 
 if __name__ == '__main__':
     old_models.initialize()
