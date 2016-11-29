@@ -38,12 +38,12 @@ margin-bottom: 40px;
 }
 
 /* My top activities section starts here*/
-.myactivities {
+/* .myactivities {
 	border-top: thin solid lightgrey;
 	padding-top: 40px;
 	padding-bottom: 40px;
 	text-align: center;
-}
+} */
 
 .activitylog {
 	margin-top: 30px;
@@ -55,13 +55,13 @@ h3 {
 	font-size: 20px;
 }
 
-.activitylog .col-lg-4 {
+/* .activitylog .col-lg-4 {
 	padding-top: 10px;
 	width: 350px;
 	margin: 10px;
 	background: lightgrey;
 	padding-bottom: 30px;
-}
+} */
  
  /*Re-styled for mobile use*/
  
@@ -76,11 +76,11 @@ h3 {
 	text-align: center;
 } 
 
-.activitylog img{
+/* .activitylog img{
 	
 	width: 200px;
 
-}
+} */
 
 
  }
